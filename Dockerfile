@@ -8,7 +8,9 @@ RUN mkdir -p /etc/nginx/vhost.d \
     && { \
       echo 'allow 127.0.0.1;'; \
       echo 'allow 39.110.203.177;'; \
-      echo 'allow 54.89.92.4;'; \
+      echo 'allow 54.88.0.0/14;'; \
+      echo 'allow 52.86.0.0/15;'; \
+      echo 'allow 52.220.0.0/15;'; \
       echo 'deny all;'; \
     } > /etc/nginx/vhost.d/lgtm.mixin.tech_location
 
