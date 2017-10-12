@@ -4,5 +4,9 @@ RUN mkdir -p /etc/nginx/vhost.d \
     && { \
       echo 'server_tokens off;'; \
       echo 'client_max_body_size 100m;'; \
-    } > /etc/nginx/vhost.d/lgtm.mixin.tech
+    } > /etc/nginx/vhost.d/lgtm.mixin.tech \
+    && { \
+      echo 'allow 127.0.0.1;'; \
+      echo 'deny all;'; \
+    } > /etc/nginx/vhost.d/lgtm.mixin.tech_location
 
