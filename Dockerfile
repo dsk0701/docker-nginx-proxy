@@ -8,9 +8,6 @@ RUN mkdir -p /etc/nginx/vhost.d \
     && { \
       echo 'allow 127.0.0.1;'; \
       echo 'allow 192.168.0.4;'; \
-      echo 'allow 192.168.0.0/24;'; \
-      echo 'allow 39.110.203.177;'; \
-      echo 'if ($http_user_agent ~* slack) { return 200; }'; \
       echo 'deny all;'; \
     } > /etc/nginx/vhost.d/lgtm.mixin.tech_location
 
