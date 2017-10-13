@@ -4,7 +4,7 @@ RUN mkdir -p /etc/nginx/vhost.d \
     && { \
       echo 'server_tokens off;'; \
       echo 'client_max_body_size 100m;'; \
-      echo 'if ($http_user_agent ~* (.*slack.*)) { return 200; }'; \
+      echo 'if ($http_user_agent ~* (.*slack.*)) { proxy_pass http://lgtm.mixin.tech$request_uri; }'; \
     } > /etc/nginx/vhost.d/lgtm.mixin.tech \
     && { \
       echo 'allow 127.0.0.1;'; \
@@ -13,3 +13,4 @@ RUN mkdir -p /etc/nginx/vhost.d \
       echo 'deny all;'; \
     } > /etc/nginx/vhost.d/lgtm.mixin.tech_location
 
+      # echo 'if ($http_user_agent ~* (.*slack.*)) { rewrite ^(.*)$ http://lgtm.mixin.tech$request_uri redirect; }'; \
